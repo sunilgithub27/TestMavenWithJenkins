@@ -3,12 +3,14 @@ package BrowserSetup;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.Assert;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 public class BasicTest {
-
-    private WebDriver driver;
+    private WebDriver driver = null;
 
     @Test(groups = {"NumberManipulationTest"})
     public void testAdd(){
@@ -43,15 +45,30 @@ public class BasicTest {
         Assert.assertEquals(a/b, expected,"Divide failed");
     }
 
+    @Parameters("Browser")
     @Test(groups = {"browserTest"})
-    public void launchBrowser(){
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--disable-infobars");
-        options.addArguments("--no-sandbox");
-        options.addArguments("--disable-popup-blocking");
-        options.addArguments("--start-maximized");
-        options.setAcceptInsecureCerts(true);
-        ChromeDriver driver = new ChromeDriver(options);
+    public void launchBrowser(String browserName) {
+
+        System.out.println("Launching browser " + browserName);
+        if(browserName.contains("chrome")) {
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--disable-infobars");
+            options.addArguments("--no-sandbox");
+            options.addArguments("--disable-popup-blocking");
+            options.addArguments("--start-maximized");
+            options.setAcceptInsecureCerts(true);
+            driver = new ChromeDriver(options);
+        }
+
+        else if(browserName.contains("firefox")) {
+            FirefoxOptions firefoxOptions = new FirefoxOptions();
+            firefoxOptions.addArguments("--no-sandbox");
+            firefoxOptions.addArguments("--disable-popup-blocking");
+            firefoxOptions.addArguments("--start-maximized");
+            firefoxOptions.setAcceptInsecureCerts(true);
+            driver = new FirefoxDriver(firefoxOptions);
+        }
+
         driver.get("https://www.selenium.dev/documentation/webdriver/drivers/options/");
         driver.quit();
     }
