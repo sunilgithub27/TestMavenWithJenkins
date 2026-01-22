@@ -1,5 +1,6 @@
 package BrowserSetup;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -70,6 +71,7 @@ public class BasicTest {
         }
 
         driver.get("https://www.selenium.dev/documentation/webdriver/drivers/options/");
+        driver.findElement(By.linkText("/downloads")).click();
         driver.quit();
     }
 }
