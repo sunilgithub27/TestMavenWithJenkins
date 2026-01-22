@@ -71,7 +71,7 @@ public class BasicTest {
         }
 
         driver.get("https://www.selenium.dev/documentation/webdriver/drivers/options/");
-        driver.findElement(By.linkText("/downloads")).click();
+        driver.findElement(By.xpath("//a[@href =\"/downloads\"]")).click();
         driver.quit();
     }
 }
