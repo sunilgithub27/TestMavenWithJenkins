@@ -1,0 +1,53 @@
+{
+  "testData": [
+    {
+      "testName": "LoginTest",
+      "data": [
+        {
+          "runmode": "y",
+          "browser": "chrome",
+          "username": "test@gmail.com",
+          "password": "test123"
+        },
+        {
+          "runmode": "y",
+          "browser": "firefox",
+          "username": "test@gmail.com",
+          "password": "test123"
+        },
+        {
+          "runmode": "y",
+          "browser": "edge",
+          "username": "test@gmail.com",
+          "password": "test123"
+        }
+      ]
+    },
+    {
+      "testName": "PurchaseOrderTest",
+      "data": [
+        {
+          "runmode": "y",
+          "browser": "chrome",
+          "productName": "iPhone 12",
+          "minCost": "20000",
+          "maxCost": "50000"
+        },
+        {
+          "runmode": "y",
+          "browser": "firefox",
+          "productName": "iPhone 14",
+          "minCost": "20000",
+          "maxCost": "50000"
+        },
+        {
+          "runmode": "y",
+          "browser": "edge",
+          "productName": "ThinkPad",
+          "minCost": "20000",
+          "maxCost": "50000"
+        }
+      ]
+    }
+  ]
+}

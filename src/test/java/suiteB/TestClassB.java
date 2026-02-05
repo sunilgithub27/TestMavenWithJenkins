@@ -1,0 +1,4 @@
+package suiteB;
+
+public class TestClassB {
+}
